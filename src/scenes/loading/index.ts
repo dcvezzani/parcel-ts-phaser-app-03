@@ -9,6 +9,7 @@ export class LoadingScene extends Scene {
         this.load.baseURL = 'assets/';
 
         this.loadKingSprites();
+        this.loadRedChompingMonsterSprites();
     }
 
     create(): void {
@@ -20,5 +21,14 @@ export class LoadingScene extends Scene {
     private loadKingSprites(): void {
         this.load.image('king', 'sprites/king.png');
         this.load.atlas('a-king', 'spritesheets/piskel/a-king/a-king.png', 'spritesheets/piskel/a-king/a-king.json');
+    }
+
+    private loadRedChompingMonsterSprites(): void {
+        this.load.image('enemy', 'sprites/red-chomping-monster.png');
+        this.load.atlas(
+            'a-enemy',
+            'spritesheets/red-chomping-monster.png',
+            'spritesheets/red-chomping-monster_atlas.json',
+        );
     }
 }
