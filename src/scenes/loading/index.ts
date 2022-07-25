@@ -10,6 +10,8 @@ export class LoadingScene extends Scene {
 
         this.loadKingSprites();
         this.loadRedChompingMonsterSprites();
+        this.loadMountainTrollSprites();
+        this.loadGreenGolemSprites();
     }
 
     create(): void {
@@ -24,11 +26,25 @@ export class LoadingScene extends Scene {
     }
 
     private loadRedChompingMonsterSprites(): void {
-        this.load.image('enemy', 'sprites/red-chomping-monster.png');
+        this.load.image('red-chomping-monster', 'sprites/red-chomping-monster.png');
         this.load.atlas(
-            'a-enemy',
+            'a-red-chomping-monster',
             'spritesheets/red-chomping-monster.png',
             'spritesheets/red-chomping-monster_atlas.json',
         );
+    }
+
+    private loadMountainTrollSprites(): void {
+        this.load.image('mountain-troll', 'sprites/mountain-troll.png');
+        this.load.atlas(
+            'a-mountain-troll',
+            'spritesheets/mountain-troll.png',
+            'spritesheets/mountain-troll_atlas.json',
+        );
+    }
+
+    private loadGreenGolemSprites(): void {
+        this.load.image('green-golem', 'sprites/green-golem.png');
+        this.load.atlas('a-green-golem', 'spritesheets/green-golem.png', 'spritesheets/green-golem_atlas.json');
     }
 }

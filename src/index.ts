@@ -42,7 +42,7 @@ export const gameConfig: GameConfigExtended = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            debug: false,
         },
     },
     render: {

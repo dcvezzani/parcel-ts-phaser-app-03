@@ -45,7 +45,7 @@ export class Actor extends Physics.Arcade.Sprite {
         }
     }
 
-    protected checkFlip(callback: Callback): void {
+    protected checkFlip(callback?: Callback): void {
         this.setDirection(this.body.velocity.x);
         if (callback) callback(this.scaleX);
     }

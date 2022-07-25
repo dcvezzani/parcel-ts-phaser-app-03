@@ -18,8 +18,8 @@ export class Enemy extends Actor {
         y: number,
         scale: number,
         player: Player,
-        enemySprite = 'enemy',
-        animationActions = new AnimationActions({ run: EVENTS_NAME.enemyRun }),
+        enemySprite = 'red-chomping-monster',
+        animationActions = new AnimationActions({ run: EVENTS_NAME.redChompingMonsterRun }),
     ) {
         super(scene, x, y, scale, enemySprite);
         this.setScale(scale);
@@ -53,24 +53,5 @@ export class Enemy extends Actor {
         } else {
             this.getBody().setVelocity(0);
         }
-    }
-
-    public initAnimations(): void {
-        this.scene.anims.create({
-            key: 'red-chomping-monster-run',
-            frames: this.scene.anims.generateFrameNames('a-enemy', {
-                prefix: 'walk-',
-                end: 4,
-            }),
-            frameRate: 8,
-        });
-        this.scene.anims.create({
-            key: 'red-chomping-monster-jump',
-            frames: this.scene.anims.generateFrameNames('a-enemy', {
-                prefix: 'jump-',
-                end: 2,
-            }),
-            frameRate: 8,
-        });
     }
 }
