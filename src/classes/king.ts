@@ -3,21 +3,24 @@ import { Actor } from './actor';
 import { EVENTS_NAME } from '../consts';
 
 export class King extends Actor {
-    protected boundingBoxDimensions: Math.Vector2;
+    protected boundingBoxDimensions: SizeDimensions;
     protected boundingBoxOffset: Math.Vector2;
 
     constructor(scene: Phaser.Scene, x: number, y: number, scale: number) {
         super(scene, x, y, scale, 'king');
         this.setScale(scale);
         this.setOrigin(0.435897435897436, 0.5);
-        this.velocity = 150;
-        this.boundingBoxDimensions = new Math.Vector2(20, 25);
-        this.boundingBoxOffset = new Math.Vector2(22, 20);
+        this.velocity = 200;
+
+        // this.boundingBoxDimensions = { w: 20, h: 25 } as SizeDimensions;
+        // this.boundingBoxOffset = new Math.Vector2(22, 20);
+        this.boundingBoxDimensions = { w: 24, h: 29 } as SizeDimensions;
+        this.boundingBoxOffset = new Math.Vector2(20, 17);
     }
 
     create(): void {
         super.create();
-        this.getBody().setSize(this.boundingBoxDimensions.x, this.boundingBoxDimensions.y, true);
+        this.getBody().setSize(this.boundingBoxDimensions.w, this.boundingBoxDimensions.h, true);
         this.getBody().offset.x = this.offsetRight;
         this.getBody().offset.y = this.boundingBoxOffset.y;
     }
@@ -46,6 +49,6 @@ export class King extends Actor {
     }
 
     protected get offsetLeft(): number {
-        return this.boundingBoxOffset.x + this.boundingBoxDimensions.x;
+        return this.boundingBoxOffset.x + this.boundingBoxDimensions.w;
     }
 }
