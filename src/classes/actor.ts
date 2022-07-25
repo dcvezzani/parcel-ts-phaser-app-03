@@ -16,6 +16,14 @@ export class Actor extends Physics.Arcade.Sprite {
     }
 
     create(): void {
+        this.debugCreateOriginPoints();
+    }
+
+    update(): void {
+        this.debugShowOriginPoints();
+    }
+
+    protected debugCreateOriginPoints(): void {
         if (this.scene.game.config.physics.arcade?.debug) {
             this.debugOrigin = this.scene.add.circle(this.x + this.originX, this.y + this.originY, 10, 0x6666ff);
 
@@ -26,10 +34,6 @@ export class Actor extends Physics.Arcade.Sprite {
                 0xff0000,
             );
         }
-    }
-
-    update(): void {
-        this.debugShowOriginPoints();
     }
 
     protected debugShowOriginPoints(): void {

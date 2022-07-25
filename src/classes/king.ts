@@ -12,10 +12,7 @@ export class King extends Actor {
         this.setOrigin(0.435897435897436, 0.5);
         this.velocity = 200;
 
-        // this.boundingBoxDimensions = { w: 20, h: 25 } as SizeDimensions;
-        // this.boundingBoxOffset = new Math.Vector2(22, 20);
-        this.boundingBoxDimensions = { w: 24, h: 29 } as SizeDimensions;
-        this.boundingBoxOffset = new Math.Vector2(20, 17);
+        this.setBoundingBox();
     }
 
     create(): void {
@@ -42,6 +39,18 @@ export class King extends Actor {
             }),
             frameRate: 8,
         });
+    }
+
+    private setBoundingBox(): void {
+        // this.boundingBoxDimensions = { w: 20, h: 25 } as SizeDimensions;
+        // this.boundingBoxOffset = new Math.Vector2(22, 20);
+
+        // create size dimensions that should surround the king (and not the hammer)
+        this.boundingBoxDimensions = { w: 24, h: 29 } as SizeDimensions;
+
+        // bounding box should be adjusted 20 pixels to the right and 17 pixels down
+        // in order to be positioned around the body of the king
+        this.boundingBoxOffset = new Math.Vector2(20, 17);
     }
 
     protected get offsetRight(): number {
