@@ -1,0 +1,52 @@
+{
+    "activeFile": "dungeon.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInEditor": 1
+        },
+        "/Users/dcvezzani/dungeon.tmx": {
+            "scale": 0.6097812499999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 801.1069543381336,
+                "y": 801.1069543381334
+            }
+        },
+        "/Users/dcvezzani/dungeon.tmx#dungeon": {
+            "scaleInDock": 1
+        },
+        "dungeon.tmx": {
+            "scale": 0.6097812499999999,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 701.0710808179163,
+                "y": 1052.0166043150718
+            }
+        },
+        "dungeon.tmx#dungeon": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "dungeon.tsx": {
+            "scaleInDock": 1.5,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "/Users/dcvezzani/personal-projects/phaser/parcel-ts-app/public/assets/tilemaps/json",
+    "last.imagePath": "/Users/dcvezzani/personal-projects/phaser/parcel-ts-app/public/assets/tilemaps/tiles",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "openFiles": [
+        "dungeon.tsx",
+        "dungeon.tmx"
+    ],
+    "project": "dungeon.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "dungeon.tsx",
+        "dungeon.tmx",
+        "/Users/dcvezzani/dungeon.tmx"
+    ]
+}
