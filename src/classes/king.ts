@@ -11,6 +11,8 @@ export class King extends Actor {
         this.setScale(scale);
         this.setOrigin(0.435897435897436, 0.5);
         this.velocity = 200;
+        this.boundingBoxDimensions = { w: 0, h: 0 } as SizeDimensions;
+        this.boundingBoxOffset = new Math.Vector2(0, 0);
 
         this.setBoundingBox();
     }
@@ -20,6 +22,7 @@ export class King extends Actor {
         this.getBody().setSize(this.boundingBoxDimensions.w, this.boundingBoxDimensions.h, true);
         this.getBody().offset.x = this.offsetRight;
         this.getBody().offset.y = this.boundingBoxOffset.y;
+        this.getBody().collideWorldBounds = true;
     }
 
     public initAnimations(): void {

@@ -6,6 +6,7 @@ export enum EVENTS_NAME {
     mountainTrollRun = 'mountain-troll-run',
     greenGolemRun = 'green-golem-run',
     moveEnemy = 'move-enemy',
+    chestLoot = 'chest-loot',
 }
 
 export enum GameStatus {

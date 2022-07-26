@@ -1,4 +1,4 @@
-import { Scene } from 'phaser';
+import { Scene, Tilemaps } from 'phaser';
 
 export class LoadingScene extends Scene {
     constructor() {
@@ -7,6 +7,10 @@ export class LoadingScene extends Scene {
 
     preload(): void {
         this.load.baseURL = 'assets/';
+
+        this.loadDungeonTilemap();
+
+        this.loadDungeonSpriteSheet();
 
         this.loadKingSprites();
         this.loadRedChompingMonsterSprites();
@@ -18,6 +22,21 @@ export class LoadingScene extends Scene {
         console.log('Loading scene was created');
         this.scene.start('level-01-scene');
         this.scene.start('ui-scene');
+    }
+
+    private loadDungeonTilemap(): void {
+        this.load.image({
+            key: 'tiles',
+            url: 'tilemaps/tiles/dungeon-16-16.png',
+        });
+        this.load.tilemapTiledJSON('dungeon', 'tilemaps/json/dungeon.json');
+    }
+
+    private loadDungeonSpriteSheet(): void {
+        this.load.spritesheet('tiles_spr', 'tilemaps/tiles/dungeon-16-16.png', {
+            frameWidth: 16,
+            frameHeight: 16,
+        });
     }
 
     private loadKingSprites(): void {

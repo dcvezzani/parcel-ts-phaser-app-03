@@ -6,11 +6,10 @@ import { Player } from './player';
 
 export class Enemy extends Actor {
     private target: Player;
-    private started: boolean;
-    private startedAnimation: boolean;
-    private AGRESSOR_RADIUS = 200;
-    private velocityOffset = 0.7;
+    private AGRESSOR_RADIUS = 150;
+    private velocityOffset = 1.5;
     private animationActions: AnimationActions;
+    private attackHandler: () => void;
 
     constructor(
         scene: Phaser.Scene,
@@ -23,10 +22,28 @@ export class Enemy extends Actor {
     ) {
         super(scene, x, y, scale, enemySprite);
         this.setScale(scale);
-        this.startedAnimation = false;
-        this.started = false;
         this.target = player;
         this.animationActions = animationActions;
+
+        this.attackHandler = () => {
+            if (
+                Phaser.Math.Distance.BetweenPoints({ x: this.x, y: this.y }, { x: this.target.x, y: this.target.y }) <
+                this.target.width
+            ) {
+                this.getDamage();
+                this._destroy();
+                this.disableBody(true, false);
+                this.scene.time.delayedCall(300, () => {
+                    this.destroy();
+                });
+            }
+        };
+
+        // EVENTS
+        this.scene.game.events.on(EVENTS_NAME.attack, this.attackHandler, this);
+        this.on('destroy', () => {
+            this.scene.game.events.removeListener(EVENTS_NAME.attack, this.attackHandler);
+        });
     }
 
     create(): void {
@@ -37,8 +54,9 @@ export class Enemy extends Actor {
     }
 
     update(): void {
-        super.update();
+        if (!this.active) return;
 
+        super.update();
         if (
             Phaser.Math.Distance.BetweenPoints({ x: this.x, y: this.y }, { x: this.target.x, y: this.target.y }) <
             this.AGRESSOR_RADIUS
@@ -53,5 +71,9 @@ export class Enemy extends Actor {
         } else {
             this.getBody().setVelocity(0);
         }
+    }
+
+    public setTarget(target: Player): void {
+        this.target = target;
     }
 }
